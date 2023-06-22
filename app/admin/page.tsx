@@ -16,18 +16,22 @@ export default function Admin() {
         <input maxLength={10} className="text-black" type="text" onChange={e => setLicenseKey(e.target.value)} value={licenseKey} placeholder="License key.." />
       </div>
       <table>
-        <tr>
-          <td>License</td>
-          <td>Rented until</td>
-          <td>Rented by</td>
-        </tr>
-        {statuses.map((license) =>
-          <tr key={license['licenseKey']}>
-            <td>{license['licenseKey']}</td>
-            <td>{license['rentedUntil']}</td>
-            <td>{license['rentedBy']}</td>
+        <thead>
+          <tr>
+            <th>License</th>
+            <th>Rented until</th>
+            <th>Rented by</th>
           </tr>
-        )}
+        </thead>
+        <tbody>
+          {statuses.map((license) =>
+            <tr key={license['licenseKey']}>
+              <td>{license['licenseKey']}</td>
+              <td>{license['rentedUntil']}</td>
+              <td>{license['rentedBy']}</td>
+            </tr>
+          )}
+        </tbody>
       </table>
     </main>
   )
